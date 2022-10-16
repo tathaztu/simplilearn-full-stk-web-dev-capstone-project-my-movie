@@ -1,0 +1,25 @@
+
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-10 col-md-8 col-lg-4">
+          <!-- Form -->
+          <form class="form-example" action="" method="post">
+              <h1>Login</h1>
+              <!-- Input fields -->
+              <div class="form-group">
+                  <label for="username">Username:</label>
+                  <input type="text" class="form-control username" id="username" placeholder="Username..." name="username" [(ngModel)]="username">
+              </div>
+              <div class="form-group my-1">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control password" id="password" placeholder="Password..." name="password" [(ngModel)]="password"> 
+              </div>
+              <button (click)=handleLogin() class="btn btn-primary btn-customized my-1">Login</button>
+              <button type="button" class="btn btn-warning mx-3 my-1" (click)="navigate2Register()">Sign-up</button>
+              <!-- End input fields -->
+          </form>
+          <small *ngIf='invalidLogin' class="text-danger">{{errorMessage}}</small>
+          <!-- Form end -->
+      </div>
+  </div>
+</div>

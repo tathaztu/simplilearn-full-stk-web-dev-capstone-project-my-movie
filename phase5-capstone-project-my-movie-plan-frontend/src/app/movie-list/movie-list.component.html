@@ -1,0 +1,51 @@
+<div class="d-flex flex-row mw-100 flex-fill p-2">
+    <input type="search" id="search-text-field" placeholder="Search..." aria-label="Search"
+        style="border-top-right-radius: 0rem; border-bottom-right-radius: 0rem;" 
+        class="form-control form-control-dark" [(ngModel)]="strSearch" aria-describedby="search-addon"/>
+    <button type="button" class="btn btn-primary" id="search-addon"
+        (click)="searchMovies()"
+        style="border-top-left-radius: 0rem; border-bottom-left-radius: 0rem;" >
+        <i class="fas fa-search"></i>
+    </button>
+</div>
+<hr>
+<div class="right p-2 " *ngIf="movieList">
+    <div class="border border-secondary rounded">
+    <table class="table table-hover border ">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Starring</th>
+            <th scope="col">Price</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Director</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movieList; let i = index" style="vertical-align:middle" (click)="processRowClick(movie.longMovieId)">
+                <td scope="row">{{movie.strMovieName}}</td>
+                <td scope="row">{{movie.strStarring}}</td>
+                <td scope="row">${{movie.flTicketPrice}}</td>
+                <td scope="row">{{movie.strGenreCode}}</td>
+                <td scope="row">{{movie.strDirectedBy}}</td>
+                <td scope="row" style="width: 350px;">
+                    <div class="d-flex align-items-center">
+                        <img [src]="urlArray[i]" *ngIf="urlArray[i]" style="margin-top: 20px; width: 100px; height: 100px"
+                            class="rounded-circle">
+                        <div class="d-flex flex-wrap">
+                            <div *ngFor="let showTime of movie.listShowTimes;" 
+                                class="d-flex d-inline flex-column align-items-sm-center mx-3 border rounded btn-outline-primary p-1 my-1 bg-light">
+                                <label for="username">{{showTime.ltShowTime}}</label>
+                                <button type="button" class="btn btn-sm btn-info d-inline mt-1" (click)="add2Cart($event, i, showTime.ltShowTime)">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

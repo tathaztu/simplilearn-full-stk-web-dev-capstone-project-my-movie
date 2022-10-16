@@ -1,0 +1,97 @@
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-start">
+        <div>
+            <!-- Form -->
+            <form class="form-example" action="" method="post">
+                <h3 class="my-3">
+                    <div *ngIf="movie.longMovieId; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>Edit Movie</ng-template>
+                    <ng-template #elseBlock>Add Movie</ng-template>
+                </h3>
+                <!-- Input fields -->
+                <div class="d-flex">
+                    <div class="col-10 col-md-8 col-lg-6">
+                        <div class="row mb-2">
+                            <label for="movieName" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="movieName" placeholder="Movie Name" name="movieName" 
+                                    [(ngModel)]="movie.strMovieName">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="genreCode" class="col-sm-2 col-form-label">Genre Code</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="genreCode" name="genreCode" [(ngModel)]="movie.strGenreCode">
+                                    <option disabled>Select</option>  
+                                    <option *ngFor="let gen of movieService.movieGenres" [ngValue]="gen.strGenreCode" >{{gen.strGenreName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="langCode" class="col-sm-2 col-form-label">Lang Code</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="langCode" name="langCode" [(ngModel)]="movie.strLangCode">
+                                    <option disabled>Select</option>
+                                    <option *ngFor="let lang of movieService.movieLanguages" [ngValue]="lang.strLangCode" >{{lang.strLangName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="desc" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="desc" name="desc" [(ngModel)]="movie.strDesc" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="ticketPrice" class="col-sm-2 col-form-label">Price ($)</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ticketPrice" placeholder="xx.xx" name="ticketPrice" 
+                                    [(ngModel)]="movie.flTicketPrice">
+                            </div>
+                        </div>
+                            
+                        <div class="row mb-2">
+                            <label for="starring" class="col-sm-2 col-form-label">Starring</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="starring" placeholder="Starring" name="starring" 
+                                    [(ngModel)]="movie.strStarring">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="directedBy" class="col-sm-2 col-form-label">Directed By</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="directedBy" placeholder="Director" name="directedBy" 
+                                    [(ngModel)]="movie.strDirectedBy">
+                            </div>
+                        </div>
+
+                        <div>
+                            <fieldset class="border p-2">
+                                <legend  class="w-100 small">Show Time(s)</legend>
+                                <input *ngFor="let showTime of movie.listShowTimes;" type="time" class="d-inline" style="margin-right: 5px;" 
+                                    [(ngModel)]="showTime.ltShowTime" name="show-time"/>
+                                <br>
+                                <button type="button" class="btn btn-sm btn-info d-inline p-2 mt-3" (click)="addShowTime()">Add</button>
+                            </fieldset>
+                        </div>
+
+                        <button (click)="saveMovie()" class="btn btn-primary btn-customized" style="margin-top:5px">Save</button>
+                    </div>
+                    <div class="mx-5">
+                        <div class="row mb-2">
+                            <img [src]="url" *ngIf="url" style="max-width: 100" alt=" ">
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="image"
+                                id="image" (change)="selectFile($event)" />
+                            <label class="custom-file-label" for="image"></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- End input fields -->
+            </form>
+            <!-- <small *ngIf='invalidLogin' class="text-danger">{{errorMessage}}</small> -->
+            <!-- Form end -->
+        </div>
+    </div>
+</div>

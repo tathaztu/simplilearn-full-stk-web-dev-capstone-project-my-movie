@@ -1,0 +1,60 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: cornsilk;
+}
+
+#myMovieHeaderTitle:hover {
+    text-shadow: -2px 3px 0 #ddcaff;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+/* .res-circle {
+  width: 20%;
+  border-radius: 50%;
+
+  background: #bcd6ff;
+ 
+  line-height: 0;
+  position: relative;
+} */
+
+.res-circle {
+    line-height: 0;
+    position: relative;
+  }
+
+/* (D) MATCH HEIGHT */
+.res-circle::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+ 
+/* (E) TEXT BLOCK */
+.circle-txt {
+  /* (E1) CENTER TEXT IN CIRCLE */
+  position: absolute;
+  bottom: 50%;
+  width: 100%;
+  text-align: center;
+ 
+  /* (E2) THE FONT - NOT REALLY IMPORTANT */
+  font-family: arial, sans-serif;
+  font-weight: bold;
+}
+
+.circle-singleline {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+  }

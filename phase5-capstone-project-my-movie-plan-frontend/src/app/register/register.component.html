@@ -1,0 +1,51 @@
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+            <!-- Form -->
+            <form class="form-example" action="" method="post">
+                <h1>Login</h1>
+                <!-- Input fields -->
+                <div class="row mb-2">
+                    <label for="userID" class="col-sm-2 col-form-label">UserID:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="userID" placeholder="UserID..." name="userID" [(ngModel)]="user.strUserId">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <label for="firstname" class="col-sm-2 col-form-label">Firstname:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="firstname" placeholder="First Name..." name="firstname" [(ngModel)]="user.strFirstName">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <label for="middlename" class="col-sm-2 col-form-label">Middlename:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="middlename" placeholder="Middle Name..." name="middlename" [(ngModel)]="user.strMiddleName">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <label for="lastname" class="col-sm-2 col-form-label">Lastname:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="lastname" placeholder="Last Name..." name="lastname" [(ngModel)]="user.strLastName">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <label for="email" class="col-sm-2 col-form-label">eMail:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="eMail..." name="email" [(ngModel)]="user.strEMail">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" placeholder="Password..." name="password" [(ngModel)]="user.strPassword"> 
+                    </div>
+                </div>
+                <button (click)="handleRegistration()" class="btn btn-primary btn-customized">Register</button>
+                <!-- End input fields -->
+            </form>
+            <!-- <small *ngIf='invalidLogin' class="text-danger">{{errorMessage}}</small> -->
+            <!-- Form end -->
+        </div>
+    </div>
+</div>

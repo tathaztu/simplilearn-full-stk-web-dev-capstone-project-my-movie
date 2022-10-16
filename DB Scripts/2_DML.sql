@@ -1,0 +1,67 @@
+-- Admin
+INSERT INTO USER_CONFIG
+(
+	USER_ID, FIRST_NAME, MIDDLE_NAME, LAST_NAME, EMAIL, PASSWORD, IS_ADMIN
+)
+VALUES
+(
+	'siteadmin', 'Site', null, 'Admin', 'siteadmin@mymovies.com', 'EasyPassword', 1
+);
+
+-- Movie Generes
+INSERT INTO MOVIE_GENRE
+(
+	GENRE_CODE, GENRE_NAME, DESCRIPTION
+)
+VALUES
+(
+	'ACTION', 'Action', 'Action Movies'
+);
+
+INSERT INTO MOVIE_GENRE
+(
+	GENRE_CODE, GENRE_NAME, DESCRIPTION
+)
+VALUES
+(
+	'DRAMA', 'Drama', 'Drama Movies'
+);
+
+INSERT INTO MOVIE_GENRE
+(
+	GENRE_CODE, GENRE_NAME, DESCRIPTION
+)
+VALUES
+(
+	'ROMANCE', 'Romance', 'Romance Movies'
+);
+
+INSERT INTO MOVIE_GENRE
+(
+	GENRE_CODE, GENRE_NAME, DESCRIPTION
+)
+VALUES
+(
+	'THRILLER', 'Thriller', 'Thriller Movies'
+);
+
+INSERT INTO MOVIE_GENRE
+(
+	GENRE_CODE, GENRE_NAME, DESCRIPTION
+)
+VALUES
+(
+	'SUSPENSE', 'Suspense', 'Suspense Movies'
+);
+
+-- Movie Lanuage
+INSERT INTO MOVIE_LANG
+(
+	LANG_CODE, LANG_NAME, DESCRIPTION
+)
+VALUES
+(
+	'ENG', 'English', 'English Movies'
+);
+
+COMMIT;

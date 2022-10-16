@@ -1,0 +1,201 @@
+Should be scalable: Different domains
+
+Multiple Technologies: 
+	B: Java + Spring Boot
+	F: BootStrap + Angular
+
+Testing
+Use Docker/Jenkins/etc.
+
+
+
+DB: MySQL, Oracle or Mongo DB
+
+Project Delivery divided into Sprints
+
+Backend: Spring Boot
+
+Front End: Angular + Boot Strap
+
+Dev Ops + Testing: Docker, Kubernetes, AWS, Jenkins, CI/CD
+
+————————
+
+Health Care: 
+User can order online medicine, 
+
+Admin:
+Add/Edit
+Activate/Deactivate 
+
+User:
+1. Sign In / Sign Up
+2. Search Bar (Sorted)
+3. Cart
+4. Dummy Payment Gateway
+5. Order Summary
+
+
+References
+https://github.com/Nikunj-Java/backupsessions/tree/main/Capstone%20Project%2017-07-2022/SpringBootCRUD
+
+https://github.com/Nikunj-Java/backupsessions/tree/main/Capstone%20Project%2017-07-2022/FileUpload-main
+
+
+https://github.com/Nikunj-Java/backupsessions/tree/main/Capstone%20Project%2017-07-2022
+
+https://getbootstrap.com/docs/4.0/components/carousel/
+
+
+https://github.com/Nikunj-Java/backupsessions/tree/main/Capstone%20Project%2017-07-2022/capstone
+
+
+OMGPassword! 
+
+Installing & Launching MySQL: https://flaviocopes.com/mysql-how-to-install/
+
+Questions:
+1. How to Refer to the Images from the front end? I mean display them..?
+2. Carousel
+3. To what level do we need to write the test cases? example?
+4. how are going to set up the database in the AWS environment?
+
+divide test cases by Sprints
+
+
+Selelium Reference
+------------------
+:
+package com.simplielearn.demo;
+import java.io.File;
+import java.io.IOException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+public class ScreenShot {
+	public static void main(String[] args) {
+System.setProperty("webdriver.chrome.driver", "D:\\Phase-5\\chromedriver_win32_Sept\\chromedriver.exe");
+		
+	    WebDriver driver= new ChromeDriver();
+	
+	    driver.manage().window().maximize();
+	    
+	    driver.get("https://www.facebook.com/");
+	    
+	    TakesScreenshot screenshot= (TakesScreenshot)driver;
+	    File src= screenshot.getScreenshotAs(OutputType.FILE);
+	    
+	    
+	    try {
+			FileHandler.copy(src, new File("D://Screenshot//Facebook.png"));
+			System.out.println("Screenshot saved successfully");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace(
+
+
+
+pom.xml should have cross origin dependency
+
+
+<!--Cross origin Dependency-->
+		<dependency>
+			<groupId>com.allenru</groupId>
+			<artifactId>cross-origin</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+
+Integrate Front End and Backend
+-------------------------------
+https://github.com/Nikunj-Java/backupsessions/tree/main/Capstone%20Project%2017-07-2022
+
+Full Reference
+--------------
+https://github.com/Nikunj-Java/backupsessions/tree/main/mymovie
+
+
+https://github.com/Nikunj-Java/backupsessions/tree/main/Capstone%20Project%2017-07-2022/capstone
+
+https://github.com/Nikunj-Java/backupsessions
+
+
+https://github.com/Nikunj-Java/Wipro-Phase-5
+
+
+From Pradnya
+------------
+const formData = new FormData();
+formData.append("file", file, file.name);
+// formData.append("price",  "20$");
+return this.http.post(this.baseApiUrl, formData)
+
+https://www.geeksforgeeks.org/angular-file-upload/
+
+addProduct(product: Product): Observable<Object>{
+    return this.httpClient.post(`${this.newURL}`, product);
+  }
+private newURL = "http://localhost:8080/api/v1/products";
+export class Product {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    imageUrl: string;
+    dateCreated: Date;
+    lastUpdate: Date;
+    cuisine: number;
+}
+
+
+{
+	"strGenreCode": "ACTION",
+	"strLangCode": "ENG",
+	"strMovieName": "The Terminator",
+	"strStarring": "Arnold Schwarzeneggar",
+	"strDirectedBy": "James Cameron",
+	"flTicketPrice": 7.50,
+	"bActive": "true",
+	"listShowTimes": 
+		[
+			{
+				"ltShowTime": "9:30"
+			},
+			{
+				"ltShowTime": "12:30"
+			},
+			{
+				"ltShowTime": "15:30"
+			},
+			{
+				"ltShowTime": "20:30"
+			}
+		]
+}
+
+var data = new FormData();
+data.append("strGenreCode", "ACTION");
+data.append("strLangCode", "ENG");
+data.append("strMovieName", "The Terminator");
+data.append("strStarring", "Arnold Schwarzeneggar");
+data.append("strDirectedBy", "James Cameron");
+data.append("flTicketPrice", "7.50");
+data.append("bActive", "true");
+data.append("file", "The_Terminator.jpg");
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://localhost:8080/movie/save");
+xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("postman-token", "9b453f82-0b54-1d64-197d-e57d30d5b783");
+
+xhr.send(data);

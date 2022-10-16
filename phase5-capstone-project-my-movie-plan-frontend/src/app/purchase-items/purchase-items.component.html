@@ -1,0 +1,49 @@
+<div class="border border-secondary rounded p-2">
+<table class="table table-hover border">
+    <thead>
+        <tr>
+        <th scope="col">Movie</th>
+        <th scope="col">Price</th>
+        <th scope="col">ShowTime - Qty.</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of this.selectedItems.keys(); let i = index" style="vertical-align:middle">
+            <td scope="row">
+                <div class="card mb-3" style="max-width: 450px;">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-4">
+                            <img [src]="urlArray[i]" *ngIf="urlArray[i]" class="card-img">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{movie.strMovieName}}</h5>
+                            <p class="card-text">{{movie.strDesc}}</p>
+                            <p class="card-text"><small class="text-muted">{{movie.strStarring}}</small></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td scope="row" class="h3">${{movie.flTicketPrice}}</td>
+            <td scope="row">
+                <table>
+                    <tr *ngFor="let showTime of this.selectedItems.get(movie)!.keys()" style="vertical-align:middle">
+                        <td class="h3">{{showTime}}</td>
+                        <td style="width: 50px;"></td>
+                        <td class="h3">x {{this.selectedItems.get(movie)!.get(showTime)}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="d-flex justify-content-end h2 p-2" >
+    Total: ${{flTotal}}
+</div>
+<div class="d-flex justify-content-end h2 p-2">
+    <button type="button" class="btn btn-outline-primary me-2" (click)="completePurchase()">Pay and Finish</button>
+</div>
+

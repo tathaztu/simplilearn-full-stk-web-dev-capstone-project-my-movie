@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center p-3">
+<!-- Carousel -->
+<div id="demo" class="carousel slide d-inline" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+        <button 
+            type="button" 
+            data-bs-target="#demo" 
+            [attr.data-bs-slide-to]="i" 
+            [ngClass]="{'active': i == 0}"
+            *ngFor="let movie of movieList; let i = index;"
+        ></button>
+    </div>
+    
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner" *ngIf="movieList">
+      <div [ngClass]="{'carousel-item': true, 'active': i == 0}"
+        *ngFor="let movie of movieList; let i = index;">
+        <img [src]="urlArray[i]" *ngIf="urlArray[i]" style="max-height: 600px;">
+      </div>
+    </div>
+    
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+<div class="d-flex container-fluid mt-3 justify-content-center">
+    <h2>Welcome to our site, your gateway to your favorite movie theater!</h2>
+    <p><span class="fa-thin fa-camera-movie"></span></p>
+</div>
+  
