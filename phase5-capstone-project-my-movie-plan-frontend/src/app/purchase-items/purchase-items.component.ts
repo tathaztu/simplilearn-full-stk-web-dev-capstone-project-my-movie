@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../classes/movie';
+import { Purchase } from '../classes/purchase';
 import { PurchaseItem } from '../classes/purchase-item';
 import { MovieService } from '../services/movie.service';
 import { TicketsService } from '../services/tickets.service';
@@ -84,7 +85,20 @@ export class PurchaseItemsComponent implements OnInit {
       console.log(this.purchaseItems)
       console.log(this.userService.loggedInUser!) 
       console.log(this.flTotal)     
-      this.ticketService.completePurchase(this.purchaseItems, this.userService.loggedInUser!, this.flTotal);
+      this.ticketService
+        .completePurchase(this.purchaseItems, this.userService.loggedInUser!, this.flTotal)
+        .subscribe({
+          next: (response) => {
+            let purchase:Purchase = response;
+            console.log('Reponse after calling save P U R C H A S E API - ' + purchase)
+            this.ticketService.clearSelections();
+            alert('Thank you for your business');
+            this.router.navigate([''])
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        });
       console.log("calling ticket service ts - END")
     }
   }

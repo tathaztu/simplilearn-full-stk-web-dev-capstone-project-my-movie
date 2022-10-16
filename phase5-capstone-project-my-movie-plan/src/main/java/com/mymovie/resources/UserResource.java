@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mymovie.domain.User;
 import com.mymovie.service.user.UserServiceIF;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 public class UserResource {
 

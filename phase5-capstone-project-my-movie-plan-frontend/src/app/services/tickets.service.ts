@@ -16,9 +16,7 @@ export class TicketsService {
   nTotalTickets = 0;
 
   constructor(
-    private ticketService:TicketsService,
-    private httpClient: HttpClient,
-    private router: Router
+    private httpClient: HttpClient
   ) {
   }
 
@@ -76,18 +74,7 @@ export class TicketsService {
 
     console.log("JSON: Stringify from ticket.service - " + JSON.stringify(purchase));
     console.log("Waiting for service response...")
-    this.httpClient.post<Purchase>('http://localhost:8080/purchase/save', purchase).subscribe({
-      next: (response) => {
-        let purchase:Purchase = response;
-        console.log('Reponse after calling save P U R C H A S E API - ' + purchase)
-        this.ticketService.clearSelections();
-        alert('Thank you for your business');
-        this.router.navigate([''])
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    });
-    console.log("Response Complete.")
+    
+    return this.httpClient.post<Purchase>('http://localhost:8080/purchase/save', purchase);
   }
 }
